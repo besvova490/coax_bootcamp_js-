@@ -1,0 +1,21 @@
+body, html {
+  width:100vh;
+  height:100vh;
+  background: black;
+}
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+ }
+#container {
+  height: auto;
+  position: relative;
+}
+.screenSaverImg {
+  position: absolute;
+  transition: opacity 0.5s ease-in;
+}
+.screenSaverImg + .screenSaverImg {
+  opacity: 0;
+}
