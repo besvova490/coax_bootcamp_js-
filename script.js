@@ -20,21 +20,21 @@ function randomInteger(min, max) {
 }
 
 function screenSaver(time, func, slides, interval) {
-    wait = setTimeout(func, Math.abs(time - interval), slides, interval);
+    let wait = setTimeout(func, Math.abs(time - interval), slides, interval);
     document.onmousemove = document.mousedown = document.mouseup = document.onkeydown = document.onkeyup = document.focus = function () {
         clearInterval(interval_id);
         clearTimeout(wait);
         for (var i = 0; i < slides.length; i++) {
           slides[i].style.opacity = 0;
         }
-        wait = setTimeout(func, Math.abs(time - interval), slides, interval);
+        let wait = setTimeout(func, Math.abs(time - interval), slides, interval);
     }
 }
 
 function createImages(urls, transition) {
-  parent = document.getElementById('container');
+  let parent = document.getElementById('container');
   for (url in urls) {
-    img = document.createElement('img');
+    let img = document.createElement('img');
     img.setAttribute('class', 'screenSaverImg');
     img.setAttribute('id', url);
     img.style.opacity = 0;
@@ -47,29 +47,29 @@ function createImages(urls, transition) {
 }
 
 function rundomImgPosition(img_el) {
-  window_height = window.innerHeight;
-  window_width = window.innerWidth;
+  let window_height = window.innerHeight;
+  let window_width = window.innerWidth;
 
-  image_height = img_el.clientHeight;
-  image_width = img_el.clientWidth;
+  let image_height = img_el.clientHeight;
+  let image_width = img_el.clientWidth;
 
-  avail_space_v = window_height - image_height;
-  avail_space_h = window_width - image_width;
+  let avail_space_v = window_height - image_height;
+  let avail_space_h = window_width - image_width;
 
-  random_v = randomInteger(0, avail_space_v);
-  random_h = randomInteger(0, avail_space_h);
+  let random_v = randomInteger(0, avail_space_v);
+  let random_h = randomInteger(0, avail_space_h);
   img_el.style.top = random_v + "px";
   img_el.style.left = random_h + "px";
 }
 
 function ImagesSlideshow(slides, interval) {
-  pre_rendom_img = 0;
-  current = 0;
+  let pre_rendom_img = 0;
+  let current = 0;
   interval_id = setInterval(function() {
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.opacity = 0;
     }
-    random_img = randomInteger(0, slides.length - 1)
+    let random_img = randomInteger(0, slides.length - 1)
     if (random_img == pre_rendom_img) {
       random_img ++;
     }
