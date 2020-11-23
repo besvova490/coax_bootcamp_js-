@@ -27,7 +27,7 @@ function screenSaver(time, func, slides, interval) {
         for (var i = 0; i < slides.length; i++) {
           slides[i].style.opacity = 0;
         }
-        let wait = setTimeout(func, Math.abs(time - interval), slides, interval);
+        wait = setTimeout(func, Math.abs(time - interval), slides, interval);
     }
 }
 
